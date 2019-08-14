@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+  <api>
+    <resources>
+      <xpressBuyCustomApi translate="title" module="XpressBuy_ProductVariants">
+        <title>XpressBuy Custom API</title>
+        <model>XpressBuy_ProductVariants/Api</model>
+        <methods>
+          <!-- Retrieve product information -->
+          <variants translate="title" module="xpressbuy_productvariants">
+            <title>Retrieve product variants</title>
+            <acl>catalog/product</acl>
+          </variants>
+        </methods>
+      </xpressBuyCustomApi>
+    </resources>
+    <acl>
+      <resources>
+        <all>
+        </all>
+      </resources>
+    </acl>
+  </api>
+</config>

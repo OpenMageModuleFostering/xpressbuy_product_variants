@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <XpressBuy_ProductVariants>
+            <version>0.0.1</version>
+        </XpressBuy_ProductVariants>
+    </modules>
+
+    <global>
+        <models>
+            <XpressBuy_ProductVariants>
+                <class>XpressBuy_ProductVariants_Model</class>
+            </XpressBuy_ProductVariants>
+        </models>
+
+    </global>
+    <frontend>
+        <events>
+        </events>
+    </frontend>
+</config>

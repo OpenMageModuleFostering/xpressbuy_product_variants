@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<package>
+    <name>xpressbuy_product_variants</name>
+    <version>0.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>With Xpressbuy ProductVariants retailers can present customers with related products or variants of the current product selected by customer.&#xD;
+&#xD;
+XpressBuy is a service that allows a retailer to drive in-the-moment purchases of their products. Anywhere a user engages with their brand, shoppers will be able to make purchases without having to go to the retailer&#x2019;s site. XpressBuy works across all platforms (mobile and desktop), social networks (including Facebook and Twitter), within Apps, within e-mails, and in all types of Advertising (native ads, banner, video, etc.). Allowing buying &#x201C;in-the-moment&#x201D; drives higher conversion rates and, thus, higher ROI. Keeping the user &#x201C;in-the-moment&#x201D; while simultaneously lowering barriers to purchase (such as automatically retrieving address information from the user&#x2019;s mobile carrier), drives conversion rates higher by 2X to 6X and drives up average order value by up to 74%.</summary>
+    <description>XpressBuy Product Variants&#xD;
+&#xD;
+With Xpressbuy ProductVariants retailers can present customers with related products or variants of the current product selected by customer.&#xD;
+&#xD;
+XpressBuy is a service that allows a retailer to drive in-the-moment purchases of their products. Anywhere a user engages with their brand, shoppers will be able to make purchases without having to go to the retailer&#x2019;s site. XpressBuy works across all platforms (mobile and desktop), social networks (including Facebook and Twitter), within Apps, within e-mails, and in all types of Advertising (native ads, banner, video, etc.). Allowing buying &#x201C;in-the-moment&#x201D; drives higher conversion rates and, thus, higher ROI. Keeping the user &#x201C;in-the-moment&#x201D; while simultaneously lowering barriers to purchase (such as automatically retrieving address information from the user&#x2019;s mobile carrier), drives conversion rates higher by 2X to 6X and drives up average order value by up to 74%.&#xD;
+&#xD;
+Features&#xD;
+&#xD;
+Product Data to XpressBuy&#xD;
+Xpressbuy leverages the Magento&#x2019;s Product API to retrieve product variants and related products. This information is displayed to the user to as part of XpressBuy checkout.&#xD;
+&#xD;
+Basket Creation in Magento&#xD;
+XpressBuy uses this extension to create orders that include shipping, billing, quantity and selected product variants (product id).&#xD;
+&#xD;
+How it works&#xD;
+&#xD;
+Xpressbuy retrieves product variants and related products&#xD;
+Customer adds these products to cart&#xD;
+Upon customer checkout Xpressbuy creates order with selected products and variants.&#xD;
+Merchant Benefits&#xD;
+&#xD;
+Related products:&#xD;
+Showing related products to customer will reduce the customer burden to search for them.&#xD;
+&#xD;
+Increased sales:&#xD;
+Relevant products at correct time means more sales total.&#xD;
+&#xD;
+Customer Benefits:&#xD;
+&#xD;
+Choice:&#xD;
+User will have choice to choose which product to buy(which color or size)&#xD;
+&#xD;
+Smooth Add to Cart step: Customer's don't need to leave product information page in order to find related product. It makes it easy for customer to select product options (color, size etc.) during 'Add to Cart'.</description>
+    <notes>* Description modifications&#xD;
+* Changed Release Stability to Stable.</notes>
+    <authors><author><name>XpressBuy Inc.</name><user>xpressbuy</user><email>mag@getxpressbuy.com</email></author></authors>
+    <date>2015-10-05</date>
+    <time>19:19:28</time>
+    <contents><target name="magelocal"><dir name="XpressBuy"><dir name="ProductVariants"><dir name="Model"><file name="Api.php" hash="60fde9598b2cc14c857b0c3d94f7befd"/></dir><file name="changelog.txt" hash="2c9061dd93babf4499d46916588baef8"/><dir name="etc"><file name="api.xml" hash="74ff86f7267809f463c02193a5de32f2"/><file name="config.xml" hash="7085bf73362265779d4880b693859b1a"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="XpressBuy_ProductVariants.xml" hash="bf1315b50d6ef397801821f428b48847"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

@@ -3,12 +3,10 @@
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
-    "description": "With Xpressbuy ProductVariants retailers can present customers with related products or variants of the current product selected by customer.
-
-XpressBuy is a service that allows a retailer to drive in-the-moment purchases of their products. Anywhere a user engages with their brand, shoppers will be able to make purchases without having to go to the retailer’s site. XpressBuy works across all platforms (mobile and desktop), social networks (including Facebook and Twitter), within Apps, within e-mails, and in all types of Advertising (native ads, banner, video, etc.). Allowing buying “in-the-moment” drives higher conversion rates and, thus, higher ROI. Keeping the user “in-the-moment” while simultaneously lowering barriers to purchase (such as automatically retrieving address information from the user’s mobile carrier), drives conversion rates higher by 2X to 6X and drives up average order value by up to 74%.",
+    "description": "Commerce Anywhere is a service that allows a retailer to drive in-the-moment purchases of their products.",
     "authors": [
     {
-        "name": "XpressBuy Inc.",
+        "name": "Xpressbuy Inc.",
         "email": "mag@getxpressbuy.com"
     }
 ],

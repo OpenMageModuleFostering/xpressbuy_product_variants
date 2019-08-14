@@ -1,0 +1,7 @@
+===  0.0.1 (09-28-2015 ) ===
+* First version
+===  0.0.2 (10-05-2015 ) ===
+* chnages to description
+===  0.0.3 (05-23-2016 ) ===
+* configurable product attribute retrieval
+

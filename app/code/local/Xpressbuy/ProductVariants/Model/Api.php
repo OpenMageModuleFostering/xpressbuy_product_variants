@@ -24,18 +24,24 @@ class XpressBuy_ProductVariants_Model_Api extends Mage_Catalog_Model_Api_Resourc
                 return null;
             }
             $res["variants"] = array();
+
             // Collect options applicable to the configurable product
             $productAttributeOptions = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+
             $attributeOptions = array();
-            $otherOptions = array();
+            $extraOptions = array();
             foreach ($productAttributeOptions as $productAttribute) {
                 foreach ($productAttribute['values'] as $attribute) {
-                    $attributeOptions[$productAttribute['label']] = $productAttribute['label'];
+                    $attributeOptions[$productAttribute['attribute_code']] = $productAttribute['attribute_code'];
                     $attr = new stdClass();
+//                    $attr->attribute_id = $productAttribute["attribute_id"];
                     $attr->code = $attribute['value_index'];
-                    $attr->value = $attribute['store_label'];
-                    $attr->type = $productAttribute['label'];
-                    $otherOptions[$attr->code] = $attr;
+//                    $attr->value = $attribute['store_label'];
+//                    $attr->super_attribute_id = $attribute['product_super_attribute_id'];
+//                    $attr->type = $productAttribute['attribute_code'];
+//                    $attr->label = $productAttribute['label'];
+                    // $otherOptions[$attr->code] = $attr;
+                    $extraOptions[$attr->code] = $productAttribute;
                 }
             }
 
@@ -45,7 +51,7 @@ class XpressBuy_ProductVariants_Model_Api extends Mage_Catalog_Model_Api_Resourc
                 $simple_collection = $conf->getUsedProductCollection()->addAttributeToSelect('*')->addFilterByRequiredOptions();
                 foreach ($simple_collection as $simple_product) {
                     $prod_options = [];
-                    $variant_prod = $this->getVariantProduct($simple_product, $attr_types, $otherOptions, $prod_options);
+                    $variant_prod = $this->getVariantProduct($simple_product, $attr_types, $extraOptions, $prod_options);
                     array_push($res['variants'], $variant_prod);
                 }
             }
@@ -62,15 +68,17 @@ class XpressBuy_ProductVariants_Model_Api extends Mage_Catalog_Model_Api_Resourc
      * @param $simple_product
      * @param $attr_types
      * @param $extraOptions
-     * @param $prod_options
+     * @param $productOptions
      * @return array
      */
-    public function getVariantProduct($simple_product, $attr_types, $extraOptions, $prod_options)
+    public function getVariantProduct($simple_product, $attr_types, $extraOptions, $productOptions)
     {
         $product_id = $simple_product->getId();
+        $attribute_info = [];
         foreach ($attr_types as $attr_type) {
             $attr_code = Mage::getResourceModel('catalog/product')->getAttributeRawValue($product_id, $attr_type);
-            $prod_options[] = $extraOptions[$attr_code];
+            $attribute_info[] = $extraOptions[$attr_code];
+            $productOptions[$attr_type] = $simple_product->getAttributeText($attr_type);
         }
         $final_price = $simple_product->getFinalPrice();
         $regular_price = $simple_product->getPrice();
@@ -86,6 +94,11 @@ class XpressBuy_ProductVariants_Model_Api extends Mage_Catalog_Model_Api_Resourc
             $base_image['url'] = (string)Mage::Helper('catalog/image')->init($simple_product, 'image', $base_image['file']);
             $images_with_base_url[] = $base_image;
         }
+
+        // $variant_type = $simple_product->getAttributeText('color');
+        // if($variant_type == null) {
+            $variant_type = $simple_product->getName();
+        // }
         $variant_prod = array(
             'product_id' => $product_id,
             'sku' => $simple_product->getSku(),
@@ -93,7 +106,9 @@ class XpressBuy_ProductVariants_Model_Api extends Mage_Catalog_Model_Api_Resourc
             'price' => $regular_price,
             'special_price' => ($special_price),
             'images' => $images_with_base_url,
-            'attributes' => $prod_options
+            'type' => $variant_type,
+            'productOptions' => $productOptions,
+            'attribute_info' => $attribute_info,
         );
         return $variant_prod;
     }

@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/xpressbuy_product_variants",
+    "name": "openmage-module-fostering\/xpressbuy_product_variants",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Commerce Anywhere is a service that allows a retailer to drive in-the-moment purchases of their products.",
     "authors": [
